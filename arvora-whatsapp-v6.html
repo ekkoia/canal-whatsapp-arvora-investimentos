@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canal Oficial Arvora Investimentos no WhatsApp</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&display=swap');
+
+  :root{
+    --teal-900:#0A3642;
+    --teal-800:#0E4353;
+    --lime:#86B227;
+    --lime-ink:#5C7D1A;
+    --gold:#B99000;
+    --paper:#F6F8F5;
+    --ink:#0A3642;
+    --body:#3C4749;
+    --muted:#6E7E82;
+    --line:rgba(10,54,66,.14);
+    --line-soft:rgba(10,54,66,.09);
+    --white:#ffffff;
+    --whatsapp:#25D366;
+    --whatsapp-dark:#128C7E;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Saira','Segoe UI',Arial,sans-serif;
+    color:var(--body);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    font-weight:400;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--teal-900);
+    padding:22px 0;
+  }
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between;}
+  .topbar img{height:30px; width:auto;}
+  .topbar-link{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.02em;
+    color:rgba(255,255,255,.7);
+    border-bottom:1px solid rgba(255,255,255,.25);
+    padding-bottom:2px;
+    transition:color .15s ease, border-color .15s ease;
+    text-decoration:none;
+    cursor:pointer;
+    background:none;
+    border-top:none;border-left:none;border-right:none;
+    font-family:inherit;
+  }
+  .topbar-link:hover{color:#fff; border-color:#fff;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--teal-900);
+    color:var(--white);
+    padding:76px 0 88px;
+  }
+  .hero-kicker{
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--lime);
+    margin:0 0 26px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .hero-kicker::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--lime);
+  }
+
+  h1{
+    font-size:clamp(32px,4.6vw,50px);
+    line-height:1.14;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0 0 24px;
+    max-width:760px;
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--lime);
+    font-weight:600;
+  }
+
+  .hero-sub{
+    font-size:17px;
+    line-height:1.7;
+    color:rgba(255,255,255,.72);
+    max-width:560px;
+    margin:0 0 6px;
+    font-weight:300;
+  }
+  .hero-sub strong{color:rgba(255,255,255,.94); font-weight:500;}
+
+  .hero-bottom{
+    margin-top:44px;
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    appearance:none;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:600;
+    font-size:14.5px;
+    letter-spacing:.01em;
+    padding:14px 28px;
+    border-radius:3px;
+    border:1px solid transparent;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:background-color .15s ease, color .15s ease, border-color .15s ease;
+    text-decoration:none;
+  }
+  .btn:focus-visible{outline:2px solid var(--lime); outline-offset:3px;}
+  .btn-on-dark{
+    background:var(--lime);
+    color:var(--teal-900);
+  }
+  .btn-on-dark:hover{background:#98c635;}
+  .btn-on-light{
+    background:var(--teal-900);
+    color:var(--white);
+  }
+  .btn-on-light:hover{background:var(--teal-800);}
+  .btn-whatsapp{
+    background:var(--whatsapp);
+    color:var(--white);
+  }
+  .btn-whatsapp:hover{background:var(--whatsapp-dark);}
+
+  .hero-fine{
+    font-size:12.5px;
+    color:rgba(255,255,255,.45);
+    letter-spacing:.02em;
+  }
+  .hero-fine b{color:rgba(255,255,255,.7); font-weight:500;}
+
+  /* ---------- section shell ---------- */
+  section{padding:80px 0;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:56px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:28px;
+  }
+  .section-label{
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 14px;
+  }
+  .section-title{
+    font-size:clamp(24px,2.8vw,32px);
+    font-weight:500;
+    color:var(--ink);
+    line-height:1.28;
+    margin:0;
+    max-width:600px;
+  }
+  .section-desc{font-size:15px; line-height:1.7; color:var(--muted); max-width:280px; margin:0; text-align:right;}
+  @media (max-width:760px){
+    .section-head{flex-direction:column; align-items:flex-start;}
+    .section-desc{text-align:left;}
+  }
+
+  /* ---------- o que você encontra ---------- */
+  .receive{background:var(--white);}
+  .cards-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:0;
+    align-items:stretch;
+  }
+  .card-item{
+    padding:0 40px 0 0;
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+  }
+  .card-item + .card-item{
+    padding-left:40px;
+  }
+  .card-item:last-child{
+    padding-right:0;
+    border-right:none;
+  }
+  .row-mark{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .row-mark .num{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.1em;
+    color:var(--white);
+    background:var(--ink);
+    padding:4px 9px;
+    border-radius:2px;
+  }
+  .row-mark .day{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  /* cores intercaladas dos badges */
+  .card-item:nth-child(2) .row-mark .num{background:var(--gold);}
+  .card-item:nth-child(3) .row-mark .num{background:var(--lime-ink);}
+  .card-item h3{
+    font-size:20px;
+    font-weight:500;
+    color:var(--ink);
+    margin:0 0 16px;
+    line-height:1.3;
+  }
+  .card-item p{
+    font-size:15px;
+    line-height:1.75;
+    color:var(--body);
+    margin:0;
+    font-weight:400;
+  }
+  .card-foot{
+    margin-top:auto;
+    padding-top:20px;
+    border-top:1px solid var(--line-soft);
+    font-size:13px;
+    font-style:italic;
+    color:var(--muted);
+  }
+
+  @media (max-width:860px){
+    .cards-grid{grid-template-columns:1fr; gap:44px;}
+    .card-item{padding:0 !important; border:none !important;}
+    .card-item + .card-item{border-top:1px solid var(--line) !important; padding-top:44px !important;}
+  }
+
+  /* ---------- destaque canal ---------- */
+  .channel-band{
+    background:var(--paper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .channel-inner{
+    display:flex;
+    align-items:center;
+    gap:48px;
+    flex-wrap:nowrap;
+  }
+  .channel-icon{
+    flex:0 0 auto;
+    width:72px; height:72px;
+    border-radius:50%;
+    background:var(--whatsapp);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .channel-icon svg{
+    width:38px; height:38px; fill:#fff; display:block;
+  }
+  .channel-text{flex:1 1 auto; min-width:0;}
+  .channel-text p{
+    font-size:17px;
+    line-height:1.7;
+    color:var(--body);
+    margin:0;
+    font-weight:400;
+  }
+  .channel-text p strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+  @media (max-width:700px){
+    .channel-inner{flex-direction:column; align-items:flex-start; gap:24px;}
+  }
+
+  /* ---------- para quem é ---------- */
+  .forwhom .wrap{max-width:760px;}
+  .forwhom blockquote{
+    margin:0;
+    font-size:clamp(21px,2.6vw,28px);
+    line-height:1.55;
+    font-weight:400;
+    color:var(--ink);
+    border-left:2px solid var(--lime);
+    padding-left:28px;
+  }
+  .forwhom blockquote strong{font-weight:600;}
+  .forwhom .attribution{
+    margin-top:22px;
+    padding-left:30px;
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.7;
+    max-width:520px;
+  }
+  .forwhom-cta{
+    margin-top:32px;
+    padding-left:30px;
+  }
+
+  /* ---------- nossa história ---------- */
+  .history{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .history-head{max-width:640px; margin-bottom:20px;}
+  .history-head .section-title{margin-bottom:22px;}
+  .history-intro{max-width:600px; margin-bottom:60px;}
+  .history-intro p{font-size:15px; line-height:1.75; color:var(--body); margin:0 0 12px;}
+  .history-intro p:last-child{margin-bottom:0;}
+
+  .history-timeline{
+    position:relative;
+    max-width:720px;
+    padding-left:32px;
+  }
+  .history-timeline::before{
+    content:"";
+    position:absolute; left:0; top:6px; bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .history-item{
+    position:relative;
+    padding-bottom:44px;
+  }
+  .history-item:last-child{padding-bottom:0;}
+  .history-item::before{
+    content:"";
+    position:absolute; left:-32px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--white);
+    border:2px solid var(--lime-ink);
+  }
+  .history-item.latest::before{
+    border-color:var(--gold);
+    background:var(--gold);
+  }
+  .history-eyebrow{
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--lime-ink);
+    margin:0 0 10px;
+  }
+  .history-item.latest .history-eyebrow{color:var(--gold);}
+  .history-item h3{
+    font-size:20px;
+    font-weight:500;
+    color:var(--ink);
+    margin:0 0 8px;
+  }
+  .history-item p{
+    font-size:14.5px;
+    line-height:1.65;
+    color:var(--muted);
+    margin:0;
+    max-width:480px;
+  }
+
+  /* ---------- final cta ---------- */
+  .final{
+    background:var(--teal-900);
+    color:var(--white);
+  }
+  .final-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:nowrap;
+  }
+  .final-inner > div:first-child{
+    flex:1 1 auto;
+    min-width:0;
+    max-width:600px;
+  }
+  .final .section-label{color:var(--lime);}
+  .final h2{
+    font-size:clamp(22px,2.6vw,30px);
+    font-weight:500;
+    margin:0 0 10px;
+    color:var(--white);
+  }
+  .final p{font-size:15px; color:rgba(255,255,255,.62); margin:0; max-width:420px; font-weight:300;}
+  .final-cta{flex:0 0 auto; text-align:right;}
+  .final .hero-fine{margin-top:12px; text-align:right;}
+  @media (max-width:700px){
+    .final-inner{flex-direction:column; align-items:flex-start; flex-wrap:wrap;}
+    .final-inner > div:first-child{max-width:100%;}
+    .final-cta{text-align:left;}
+    .final .hero-fine{text-align:left;}
+  }
+
+  footer{
+    padding:36px 0;
+    background:var(--paper);
+    border-top:1px solid var(--line);
+  }
+  footer .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+  footer img{height:22px;}
+  .footer-logo{filter:brightness(0) opacity(0.85);}
+  footer .copy{font-size:12.5px; color:var(--muted);}
+
+  @media (max-width:760px){
+    section{padding:56px 0;}
+    .hero{padding:52px 0 60px;}
+    .hero-bottom{flex-direction:column; align-items:flex-start; gap:18px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <img src="https://omilhfohvstqsonhyuxp.supabase.co/storage/v1/object/public/public-assets/LOGO%20ARVORA%20COR%20NEG@5x-8.png" alt="Arvora" />
+      <a class="topbar-link" href="https://whatsapp.com/channel/0029VbD8wo0LI8YfKknUZY2g" target="_blank" rel="noopener">Entrar no canal</a>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="wrap">
+      <p class="hero-kicker">Canal oficial · WhatsApp</p>
+      <h1>Conheça o mercado por trás de <em>uma parte importante</em> da economia brasileira.</h1>
+      <p class="hero-sub">Acompanhe o agronegócio e descubra como ele se conecta às <strong>oportunidades de investimento.</strong></p>
+      <p class="hero-sub">No canal oficial da Arvora Investimentos no WhatsApp, você encontra conteúdos para entender melhor esse universo - mesmo que ainda esteja começando.</p>
+
+      <div class="hero-bottom">
+        <a class="btn btn-whatsapp" href="https://whatsapp.com/channel/0029VbD8wo0LI8YfKknUZY2g" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero entrar no canal
+        </a>
+        <p class="hero-fine">Gratuito. Direto no seu WhatsApp.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= O QUE VOCÊ ENCONTRA ================= -->
+  <section class="receive">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="section-label">O que você encontra</p>
+          <h2 class="section-title">Conteúdo para acompanhar no seu ritmo.</h2>
+        </div>
+        <p class="section-desc">Tudo direto no WhatsApp, sem precisar sair do app que você já usa.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card-item">
+          <div class="row-mark"><span class="num">01</span><span class="day">Mercado</span></div>
+          <h3>O mercado em movimento</h3>
+          <p>Notícias e acontecimentos que ajudam a entender o cenário do agronegócio - o que está mudando e por quê importa.</p>
+        </article>
+
+        <article class="card-item">
+          <div class="row-mark"><span class="num">02</span><span class="day">Análise</span></div>
+          <h3>Informação que faz sentido</h3>
+          <p>Análises e explicações sobre o mercado e as operações ligadas à economia real, em linguagem acessível.</p>
+        </article>
+
+        <article class="card-item">
+          <div class="row-mark"><span class="num">03</span><span class="day">Investimento</span></div>
+          <h3>Oportunidades de investimento</h3>
+          <p>Conheça as operações divulgadas pela Arvora e entenda melhor como elas funcionam, diretamente no canal.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BANDA CANAL ================= -->
+  <section class="channel-band">
+    <div class="wrap">
+      <div class="channel-inner">
+        <div class="channel-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="channel-text">
+          <p>Conteúdo publicado no <strong>canal oficial da Arvora Investimentos no WhatsApp</strong> - você acompanha quando quiser, no seu ritmo, sem compromisso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PARA QUEM É ================= -->
+  <section class="forwhom">
+    <div class="wrap">
+      <p class="section-label">Para quem é</p>
+      <blockquote>Para quem investe, trabalha ou simplesmente quer entender melhor <strong>um dos mercados mais importantes do Brasil.</strong></blockquote>
+      <p class="attribution">Você não precisa ser especialista em agro. A ideia é justamente traduzir o que está acontecendo no mercado para você acompanhar sem precisar passar horas lendo relatórios.</p>
+      <div class="forwhom-cta">
+        <a class="btn btn-on-light" href="https://whatsapp.com/channel/0029VbD8wo0LI8YfKknUZY2g" target="_blank" rel="noopener">Quero entrar no canal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NOSSA HISTÓRIA ================= -->
+  <section class="history">
+    <div class="wrap">
+      <div class="history-head">
+        <p class="section-label">Nossa história</p>
+        <h2 class="section-title">Uma trajetória de crescimento, estrutura e inovação.</h2>
+      </div>
+      <div class="history-intro">
+        <p>O Grupo Arvora iniciou suas operações na compra e venda de grãos, construindo experiência e presença no agronegócio.</p>
+        <p>Com o crescimento da operação, avançou para a industrialização da soja e criou novas verticais de negócio.</p>
+      </div>
+
+      <div class="history-timeline">
+        <div class="history-item">
+          <p class="history-eyebrow">Início das operações</p>
+          <h3>Compra e venda de grãos</h3>
+          <p>Comercialização de soja e milho.</p>
+        </div>
+        <div class="history-item">
+          <p class="history-eyebrow">Crescimento</p>
+          <h3>Expansão operacional</h3>
+          <p>Ampliação dos volumes negociados e da rede de produtores, indústrias e compradores.</p>
+        </div>
+        <div class="history-item">
+          <p class="history-eyebrow">Industrialização</p>
+          <h3>Farelo e óleo de soja</h3>
+          <p>Entrada no esmagamento da soja, transformando o grão em farelo e óleo.</p>
+        </div>
+        <div class="history-item latest">
+          <p class="history-eyebrow">2026</p>
+          <h3>Arvora Investimentos</h3>
+          <p>Criação da vertical que estrutura operações do grupo como ativos de renda fixa do agronegócio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section class="final" id="final-cta">
+    <div class="wrap final-inner">
+      <div>
+        <p class="section-label">Comece agora</p>
+        <h2>Entre no canal oficial da Arvora Investimentos e comece a acompanhar.</h2>
+        <p>Conteúdo gratuito sobre o agronegócio e oportunidades de investimento, direto no seu WhatsApp.</p>
+      </div>
+      <div class="final-cta">
+        <a class="btn btn-whatsapp" href="https://whatsapp.com/channel/0029VbD8wo0LI8YfKknUZY2g" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero entrar no canal
+        </a>
+        <p class="hero-fine">Gratuito. Direto no WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <img src="https://omilhfohvstqsonhyuxp.supabase.co/storage/v1/object/public/public-assets/LOGO%20ARVORA%20COR%20NEG@5x-8.png" alt="Arvora" class="footer-logo" />
+      <p class="copy">Canal oficial da Arvora Investimentos no WhatsApp.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
